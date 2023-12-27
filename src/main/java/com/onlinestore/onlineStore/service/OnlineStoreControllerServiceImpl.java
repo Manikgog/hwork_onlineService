@@ -1,10 +1,10 @@
 package com.onlinestore.onlineStore.service;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -13,11 +13,16 @@ public class OnlineStoreControllerServiceImpl implements OnlineStoreControllerSe
 
     private final List<Integer> itemsId = new ArrayList<>();
     @Override
-    public List<Integer> add(String id){
+    public List<Integer> add(Integer[] id){
+        Collections.addAll(itemsId, id);
+        /*
         String[] listId = StringUtils.split(id, ", ");
+
         for (String item : listId){
             itemsId.add(Integer.parseInt(item));
         }
+        return itemsId;
+        */
         return itemsId;
     }
 
